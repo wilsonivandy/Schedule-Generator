@@ -1,0 +1,3 @@
+/sg-backend/node_modules
+/sg-frontend/node_modules
+/sg-backend/secrets.js

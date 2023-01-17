@@ -1,0 +1,145 @@
+@import "../../node_modules/bootstrap/dist/css/bootstrap.css";
+
+.masthead .btn-primary {
+  color: #fff;
+  background-color: #203947;
+}
+.masthead .btn-primary:hover {
+  color: #fff;
+  background-color: #30556a;
+}
+.masthead .btn-check:focus + .btn-primary, .btn-primary:focus {
+  color: #fff;
+  background-color: #30556a;
+  box-shadow: 0 0 0 0.25rem #30556a;
+}
+.masthead .btn-check:checked + .btn-primary, .btn-check:active + .btn-primary, .btn-primary:active, .btn-primary.active, .show > .btn-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #203947;
+  border-color: #203947;
+}
+.btn-check:checked + .btn-primary:focus, .btn-check:active + .btn-primary:focus, .btn-primary:active:focus, .btn-primary.active:focus, .show > .btn-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.25rem #30556a;
+  background-color: #30556a;
+}
+.btn-primary:disabled, .btn-primary.disabled {
+  color: #fff;
+  background-color: #203947;
+  border-color: #203947;
+}
+
+.masthead .btn-primary:active {
+  color: #fff;
+  background-color: #30556a;
+}
+
+.masthead .btn:active {
+  color: #fff;
+  background-color: #30556a;
+}
+
+.btn {
+  box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;
+  padding: 1.25rem 2rem;
+  font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 80%;
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+  border: 0;
+  background-color: #30556a;
+}
+
+.Dashboard {
+  position: relative;
+  /* width: 100%; */
+  /* max-height: 100vh;
+  min-height: 35rem; */
+  min-height:100vh;
+  /* padding: 15rem 0; */
+  /* background: linear-gradient(to bottom right, #3322b4 0%, #467e9e 38%, #81829a 75%, #86bb91 100%); */
+  background: linear-gradient(to bottom right, #457373 20%, #739086 40%, #a4bdbe 75%, #D5B9B1 100%);
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+}
+
+.Dashboard h1, .Dashboard .h1 {
+  font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 2.5rem;
+  line-height: 2.5rem;
+  letter-spacing: 0.6rem;
+  background: rgba(255, 255, 255, 0.9);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+          background-clip: text;
+}
+.Dashboard h2, .Dashboard .h2 {
+  max-width: 25rem;
+  font-size: 1rem;
+}
+
+.Dashboard h5 {
+  font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+@media (min-width: 768px) {
+
+  .Dashboard h1, .Dashboard .h1 {
+    font-size: 4rem;
+    line-height: 4rem;
+    width:fit-content;
+  }
+}
+@media (min-width: 992px) {
+  .Dashboard h1, .Dashboard .h1 {
+    font-size: 3.5rem;
+    line-height: 3.5rem;
+    letter-spacing: 0.3rem;
+    width:fit-content;
+  }
+  .Dashboard h2, .Dashboard .h2 {
+    max-width: 40vw;
+    font-size: 1.25rem;
+  }
+}
+
+.scheduleList {
+  height: 0;
+}
+
+#map {
+  min-width: 85vw;
+  min-height: 50vh;
+}
+
+
+@media (min-width: 1100px) {
+  #map {
+    min-width: 50vw;
+    min-height: 50vh;
+  }
+}
+
+
+.backButton {
+  min-width: 10vw;
+}
+
+.list {
+  max-width: 10vw;
+}
+
+.views {
+  color: white;
+}
+
+.views:hover {
+  color: white;
+}
+
+.scheduleInfo {
+  color: white;
+  font-weight: bold;
+}

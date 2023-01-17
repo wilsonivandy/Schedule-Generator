@@ -1,0 +1,352 @@
+@charset "UTF-8";
+/*!
+* Start Bootstrap - Grayscale v7.0.5 (https://startbootstrap.com/theme/grayscale)
+* Copyright 2013-2022 Start Bootstrap
+* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-grayscale/blob/master/LICENSE)
+*/
+/*!
+ * Bootstrap v5.1.3 (https://getbootstrap.com/)
+ * Copyright 2011-2021 The Bootstrap Authors
+ * Copyright 2011-2021 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ */
+
+/* 
+.primaryContainer {
+  width: 100vw;
+  margin: 0;
+} */
+
+html {
+  scroll-padding-top: calc(4.5rem - 1px);
+}
+
+body {
+  letter-spacing: 0.0625em;
+}
+
+#mainNav {
+  min-height: 3.5rem;
+  background-color: #fff;
+}
+#mainNav .navbar-toggler {
+  font-size: 80%;
+  padding: 0.75rem;
+  color: #64a19d;
+  border: 1px solid #64a19d;
+}
+#mainNav .navbar-toggler:focus {
+  outline: none;
+}
+#mainNav .navbar-brand {
+  color: #000;
+  font-weight: 700;
+  padding: 0.9rem 0;
+}
+#mainNav .navbar-nav .nav-item:hover {
+  color: fade(#fff, 80%);
+  outline: none;
+  background-color: transparent;
+}
+#mainNav .navbar-nav .nav-item:active, #mainNav .navbar-nav .nav-item:focus {
+  outline: none;
+  background-color: transparent;
+  float: right;
+}
+@media (min-width: 0) {
+  #mainNav {
+    padding-top: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+    background-color: #203947;
+    transition: background-color 0.3s ease-in-out;
+  }
+  #mainNav .navbar-brand {
+    padding: 0.5rem 0;
+    color: rgba(255, 255, 255, 0.5);
+  }
+  #mainNav .nav-link {
+    transition: none;
+    /* padding: 2rem 1.5rem; */
+    color: rgba(255, 255, 255, 0.5);
+  }
+  #mainNav .nav-link:hover {
+    color: rgba(255, 255, 255, 0.75);
+  }
+  #mainNav .nav-link:active {
+    color: #fff;
+  }
+  #mainNav.navbar-shrink {
+    background-color: #fff;
+  }
+  #mainNav.navbar-shrink .navbar-brand {
+    color: #000;
+  }
+  #mainNav.navbar-shrink .nav-link {
+    color: #000;
+    padding: 1.5rem 1.5rem 1.25rem;
+    border-bottom: 0.25rem solid transparent;
+  }
+  #mainNav.navbar-shrink .nav-link:hover {
+    color: #64a19d;
+  }
+  
+  #mainNav.navbar-shrink .nav-link:active {
+    color: #467370;
+  }
+  #mainNav.navbar-shrink .nav-link.active {
+    color: #64a19d;
+    outline: none;
+    border-bottom: 0.25rem solid #64a19d;
+  }
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #203947;
+  border-color: #203947;
+}
+.btn-primary:hover {
+  color: #fff;
+  background-color: #30556a;
+  border-color: #203947;
+}
+.btn-primary:active {
+  color: #fff;
+  background-color: #30556a;
+}
+
+.btn-check:focus + .btn-primary, .btn-primary:focus {
+  color: #fff;
+  background-color: #30556a;
+  box-shadow: 0 0 0 0.25rem #30556a;
+}
+.btn-check:checked + .btn-primary, .btn-check:active + .btn-primary, .btn-primary:active, .btn-primary.active, .show > .btn-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #203947;
+  border-color: #203947;
+}
+.btn-check:checked + .btn-primary:focus, .btn-check:active + .btn-primary:focus, .btn-primary:active:focus, .btn-primary.active:focus, .show > .btn-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.25rem #30556a;
+  background-color: #30556a;
+}
+.btn-primary:disabled, .btn-primary.disabled {
+  color: #fff;
+  background-color: #203947;
+  border-color: #203947;
+}
+
+.btn {
+  box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;
+  padding: 1.25rem 2rem;
+  font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 80%;
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+  border: 0;
+}
+
+.masthead {
+  position: relative;
+  /* width: 100%; */
+  max-height: 100vh;
+  min-height: 35rem;
+  padding: 15rem 0;
+  /* background: linear-gradient(to bottom right, #3322b4 0%, #467e9e 38%, #81829a 75%, #86bb91 100%); */
+  background: linear-gradient(to bottom right, #457373 20%, #739086 40%, #a4bdbe 75%, #D5B9B1 100%);
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+}
+
+.masthead h1, .masthead .h1 {
+  font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 2.5rem;
+  line-height: 2.5rem;
+  letter-spacing: 0.6rem;
+  /* background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0)); */
+  background: rgba(255, 255, 255, 0.9);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+          background-clip: text;
+}
+.masthead h2, .masthead .h2 {
+  max-width: 25rem;
+  font-size: 1rem;
+}
+@media (min-width: 768px) {
+  .masthead {
+    height: 100vh;
+    padding: 0;
+  }
+
+  .masthead h1, .masthead .h1 {
+    font-size: 4rem;
+    line-height: 4rem;
+    width:fit-content;
+  }
+}
+@media (min-width: 992px) {
+  .masthead {
+    height: 100vh;
+    padding: 0;
+  }
+  .masthead h1, .masthead .h1 {
+    font-size: 3.5rem;
+    line-height: 3.5rem;
+    letter-spacing: 0.3rem;
+    width:fit-content;
+  }
+  .masthead h2, .masthead .h2 {
+    max-width: 40vw;
+    font-size: 1.25rem;
+  }
+}
+
+.heroPicture {
+  background-image: url("./assets/images/calendarHero.jpeg");
+  max-width: 100vw;
+  height: 100vh;
+  /* min-height: 100vh; */
+  background-size:contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.about-section {
+  padding-top: 10rem;
+  background: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.9) 75%, rgba(0, 0, 0, 0.8) 100%);
+}
+.about-section p {
+  margin-bottom: 5rem;
+}
+
+.projects-section {
+  padding: 10rem 0;
+}
+.projects-section .featured-text {
+  padding: 2rem;
+}
+@media (min-width: 992px) {
+  .projects-section .featured-text {
+    padding: 0 0 0 2rem;
+    border-left: 0.5rem solid #64a19d;
+  }
+}
+.projects-section .project-text {
+  padding: 3rem;
+  font-size: 90%;
+}
+@media (min-width: 992px) {
+  .projects-section .project-text {
+    padding: 5rem;
+  }
+  .projects-section .project-text hr {
+    border-color: #64a19d;
+    border-width: 0.25rem;
+    width: 30%;
+  }
+}
+
+.signup-section {
+  padding: 10rem 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.5) 75%, #000 100%);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+}
+.signup-section .form-signup input {
+  box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;
+  padding: 1.25rem 2rem;
+  height: auto;
+  font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 80%;
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+  border: 0;
+}
+
+.contact-section {
+  padding-top: 5rem;
+}
+.contact-section .card {
+  border: 0;
+  border-bottom: 0.25rem solid #64a19d;
+}
+.contact-section .card h4, .contact-section .card .h4 {
+  font-size: 0.8rem;
+  font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+}
+.contact-section .card hr {
+  border-color: #64a19d;
+  border-width: 0.25rem;
+  width: 3rem;
+}
+.contact-section .social {
+  margin-top: 5rem;
+}
+.contact-section .social a {
+  text-align: center;
+  height: 3rem;
+  width: 3rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 100%;
+  line-height: 3rem;
+  color: rgba(255, 255, 255, 0.3);
+}
+.contact-section .social a:hover {
+  color: rgba(255, 255, 255, 0.5);
+}
+.contact-section .social a:active {
+  color: #fff;
+}
+
+.showcase .showcase-text {
+  padding: 3rem;
+}
+.showcase .showcase-img {
+  min-height: 10rem;
+}
+@media (min-width: 768px) {
+  .showcase .showcase-text {
+    padding: 7rem;
+  }
+}
+
+.calendarIconPic {
+  background-image: url("./assets/images/calendarIcon.png");
+  background-size: contain;
+  min-height: 50vh;
+  max-height: 60vh;
+  margin-top: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.googlemapsIconPic {
+  background-image: url("./assets/images/googlemapsIcon.png");
+  background-size: contain;
+  min-height: 50vh;
+  max-height: 60vh;
+  margin-top: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.routeIconPic {
+  background-image: url("./assets/images/routeIcon.png");
+  background-size: contain;
+  min-height: 50vh;
+  max-height: 60vh;
+  margin-top: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+.footer {
+  padding: 5rem 0;
+}

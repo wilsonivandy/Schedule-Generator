@@ -1,0 +1,30 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "http://our.company.com/companyNew.schema.json",
+    "type": "object",
+    "properties": {
+      "username": {
+        "type": "string"
+      },
+      "schedule_name": {
+        "type": "string"
+      },
+      "schedule_date": {
+        "type": "string"
+      },
+      "schedule_start_time": {
+        "type":"string"
+      },
+      "schedule_end_time": {
+        "type":"string"
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "username",
+      "schedule_date",
+      "schedule_start_time",
+      "schedule_end_time"
+    ]
+  }
+  

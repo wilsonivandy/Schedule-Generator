@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://our.company.com/companyNew.schema.json",
+  "type": "object",
+  "properties": {
+    "username": {
+      "type": "string"
+    },
+    "event_name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 20
+    },
+    "event_start_time": {
+      "type":"string"
+    },
+    "event_end_time": {
+      "type":"string"
+    },
+    "event_duration": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "event_location": {
+      "type": "string",
+      "minLength":3
+    },
+    "event_priority": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5
+    },
+    "event_isFlexible": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "username",
+    "event_name",
+    "event_duration",
+    "event_location",
+    "event_priority"
+  ]
+}

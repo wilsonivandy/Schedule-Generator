@@ -1,0 +1,19 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "http://our.company.com/companyNew.schema.json",
+    "type": "object",
+    "properties": {
+      "schedule_date": {
+        "type": "string"
+      },
+      "schedule_start_time": {
+        "type":"string"
+      },
+      "schedule_end_time": {
+        "type":"string"
+      }
+    },
+    "additionalProperties": false,
+    "required": []
+  }
+  

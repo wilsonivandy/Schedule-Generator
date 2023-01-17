@@ -1,0 +1,63 @@
+@import "../../node_modules/bootstrap/dist/css/bootstrap.css";
+
+.pac-container {
+    background-color: #FFF;
+    z-index: 2001;
+    position: fixed;
+    display: inline-block;
+    float: left;
+}
+
+.modal {
+    z-index: 2000;
+}
+/* 
+.modal-backdrop {
+    z-index: 1000;
+}​ */
+
+.subtitles {
+    font-size: 3rem;
+    color: white;
+
+    /* background-color: green; */
+}
+
+.events {
+    font-size: 1rem;
+    color: white;
+}
+
+.eventList {
+    min-width:max-content;
+}
+
+.btn .removeButton {
+    box-shadow: none;
+    border-bottom-width: 0;
+    max-width: 2rem;
+}
+
+.smallText {
+    color: rgb(0, 0, 0,0.5);
+    font-size: 0.75rem;
+}
+
+.btn-sm {
+    box-shadow: none;
+    border-bottom-width: 0;
+}
+
+.btn-sm:hover {
+    box-shadow: none;
+    border-bottom-width: 0;
+}
+
+
+@media (max-width: 690px) {
+    
+    .table {
+        font-size: 2vw;
+    }
+}
+

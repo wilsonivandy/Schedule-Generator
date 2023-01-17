@@ -1,0 +1,72 @@
+@import "../../node_modules/bootstrap/dist/css/bootstrap.css";
+
+.masthead .btn-primary {
+  color: #fff;
+  background-color: #203947;
+}
+.masthead .btn-primary:hover {
+  color: #fff;
+  background-color: #30556a;
+}
+.masthead .btn-check:focus + .btn-primary, .btn-primary:focus {
+  color: #fff;
+  background-color: #30556a;
+  box-shadow: 0 0 0 0.25rem #30556a;
+}
+.masthead .btn-check:checked + .btn-primary, .btn-check:active + .btn-primary, .btn-primary:active, .btn-primary.active, .show > .btn-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #203947;
+  border-color: #203947;
+}
+.btn-check:checked + .btn-primary:focus, .btn-check:active + .btn-primary:focus, .btn-primary:active:focus, .btn-primary.active:focus, .show > .btn-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.25rem #30556a;
+  background-color: #30556a;
+}
+.btn-primary:disabled, .btn-primary.disabled {
+  color: #fff;
+  background-color: #203947;
+  border-color: #203947;
+}
+
+.masthead .btn-primary:active {
+  color: #fff;
+  background-color: #30556a;
+}
+
+.masthead .btn:active {
+  color: #fff;
+  background-color: #30556a;
+}
+
+.btn {
+  box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;
+  padding: 1.25rem 2rem;
+  font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 80%;
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+  border: 0;
+  background-color: #30556a;
+}
+
+@media (max-width: 992px) {
+    .homepage {
+      /* height: 100vh; */
+      padding-top: 50px;
+      padding-left: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .heroPicture {
+        max-height: 40vh;
+        min-height: 20vh;
+        margin-top: 50px;
+        margin-bottom: 30px;
+        background-size:contain;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+}
+
