@@ -1,25 +1,27 @@
 # Schedule Generator
 
-This is a full-stack web application that allows users to create, read, update, and delete events with specific or flexible timestamps. The app uses Google Maps API to take into account traffic information and travel duration between events, and generates several alternatives for feasible schedules.
+This is a full-stack web application that allows users to create, read, update, and delete events by providing specific or flexible timestamps, along with their respective locations and priority. 
 
-## Getting Started
+The app uses Google Maps API to take into account traffic information and travel duration between events, and generates several alternatives for feasible schedules that suit your preferences based on priority, traffic, and travel time. You can then view the generated schedules as a list, or as a route displayed on Google Maps.
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+## Live Demo
+- [Click here to view demo](http://schedule-generator.surge.sh/)
 
-### Prerequisites
-- Node.js v12.18.3 or later
-- npm v6.14.8 or later
-- React v16.13.1 or later
+## Features
 
-### Installing
-1. Clone the repository to your local machine: https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
-2. Navigate to the project directory: cd sg-backend ; cd sg-frontend
-3. Install the necessary dependencies: npm install
-4. Start the development server: npm start
-5. Open your web browser and navigate to `http://localhost:3000` to view the application.
+- Create and sign in into user accounts, save events and schedules
+- Create, read, update, delete events
+- Automatically generate multiple schedules and view them as a route
+- Generate schedules that takes into account traffic, duration, and priority.
 
-### Deployment
-The app is ready to be deployed to a live system.
+## NodeJS Backend API
+- The NodeJS server receives, processes, and responds the requests sent by the client. This includes any CRUD operations for events and schedules, along with information regarding locations and travel durations. The backend server also handle calls to generate the schedules. 
+
+## Technology Stack
+
+- Javascript (NodeJS, ReactJS, ExpressJS, Axios, JWTa)
+- HTML
+- CSS (Bootstrap 5)
 
 ## Built With
 - [Node.js](https://nodejs.org/) - The backend runtime environment
