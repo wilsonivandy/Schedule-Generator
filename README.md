@@ -9,10 +9,11 @@ The app uses Google Maps API to take into account traffic information and travel
 
 ## Features
 
-- Create and sign in into user accounts, save events and schedules
-- Create, read, update, delete events
+- Create and sign in into user accounts, save events and schedules.
+- Create, read, update, delete events, adding location information made simple by Google Maps Autocomplete.
 - Automatically generate multiple schedules and view them as a route
-- Generate schedules that takes into account traffic, duration, and priority.
+- Generate schedules that takes into account current traffic, duration, and priority.
+- Display schedule information such as total travel distance and duration.
 
 ## User Flow
 
