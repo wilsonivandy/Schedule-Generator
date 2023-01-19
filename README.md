@@ -16,7 +16,7 @@ The app uses Google Maps API to take into account traffic information and travel
 
 ## User Flow
 
-[User Flow](/User%20Flow.png)
+![User Flow](/User%20Flow.png)
 
 ## NodeJS Backend API
 - The NodeJS server receives, processes, and responds the requests sent by the client. This includes any CRUD operations for events and schedules, along with information regarding locations and travel durations.
@@ -29,7 +29,7 @@ The app uses Google Maps API to take into account traffic information and travel
 - The general structure represents a greedy algorithm, where it will make the locally optimal choice at each sorting iteration. By making the most reasonable choice at the current iteration, and leaving the potential conflicts that may arise the app to figure out for later. 
 - In consideration of the cost of running this app and rate limits set by Google Maps, the app checks whether it already has the distance and travel duration information of the current order of events in the schedule, prior to making an API call. If any single event-to-event travel has no information gathered on the duration or distance, the app will reverify the entire route by making another Google Maps API call.
 
-[Sorting Algorithm](/Sorting%20Algorithm.png)
+![Sorting Algorithm](/Sorting%20Algorithm.png)
 
 ## Future Improvements
 - Automatic and simple synchronization to Google Calendar will be very useful, thus the user will not have to use two apps. Rather, the schedule generator merely provides a way for users to save time by creating a schedule for them.
