@@ -19,6 +19,9 @@ The app uses Google Maps API to take into account traffic information and travel
 
 ![User Flow](/User%20Flow.png)
 
+## Data Model
+![Data Model](/Schedule%20Generator%20Schema.png)
+
 ## NodeJS Backend API
 - The NodeJS server receives, processes, and responds the requests sent by the client. This includes any CRUD operations for events and schedules, along with information regarding locations and travel durations.
 - Each request to generate a schedule will return a group of schedules, where each is an alternative. The user can thus pick which schedule they like best.
