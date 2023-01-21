@@ -1,13 +1,9 @@
 import React, { useState, useEffect, useContext } from "react";
 import ScheduleGeneratorApi from "../api";
-
-import LoadingSpinner from "../common/LoadingSpinner";
 import UserContext from "../auth/UserContext";
 import useEventState from '../hooks/useEventState';
+import Event from "./Event";
 import "./EventForm.css";
-import { XSquare, Pencil } from 'react-bootstrap-icons';
-import useEditState from "../hooks/useEditState";
-import { useHistory, Link } from "react-router-dom";
 
 /** Show page with list of companies.
  *
@@ -20,8 +16,7 @@ import { useHistory, Link } from "react-router-dom";
  */
 
 function EventList() {
-    const history = useHistory()
-    const { currentUser, setEditId, setAction } = useContext(UserContext);
+    const { currentUser } = useContext(UserContext);
     const [eventChange, toggleEventChange] = useEventState();
     const [events, setEvents] = useState(null);
 
@@ -45,42 +40,6 @@ function EventList() {
       </div>
     );
 
-  async function removeEvent(username, id) {
-      await ScheduleGeneratorApi.removeEvent(username, id);
-      toggleEventChange();
-  }
-
-  function editEvent(id) {
-    setEditId(id);
-    setAction("event");
-    history.push(`/dashboard/editing`);
-  }
-
-  function write(e) {
-    let time = new Date(e.event_start_time);
-    let startTime = `${time.toTimeString().slice(0, 8)} - ${time.toDateString()}` ;
-
-    if (e.event_isflexible === true && !e.event_start_time) {
-      startTime = undefined;
-    }
-
-    
-    return (
-      <tr>
-        {/* <button onClick={() => removeEvent(currentUser.username, e.id)} className="btn btn-primary removeButton"><XSquare/></button> */}
-        <td>
-        <button onClick={() => removeEvent(currentUser.username, e.id)} className="btn-sm btn-primary"><XSquare/></button>
-        </td>
-        <th scope="row">{e.event_name}</th>
-        <td>{startTime || "Flexible"}</td>
-        <td>{e.event_duration}</td>
-        <td>
-        <button onClick={() => editEvent(e.id)} className="btn-sm btn-primary"><Pencil/></button>
-        </td>
-      </tr>
-    )
-  }
-
   return (
       <div className="eventList col-md-8 offset-md-2 pl-0 pr-0 ml-0 mr-0">
       {events.length
@@ -101,7 +60,8 @@ function EventList() {
                     </thead>
                     <tbody>
                       {events.map(e => (
-                      write(e)))}
+                        <Event eventData={e}/>
+                      ))}
                     </tbody>
                   </table>
               </div>

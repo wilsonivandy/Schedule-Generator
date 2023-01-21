@@ -4,16 +4,7 @@ const db = require("../db");
 const { NotFoundError, BadRequestError} = require("../expressError");
 const { sqlForPartialUpdate } = require("../helpers/sql");
 
-
-/** Related functions for companies. */
-
 class Event {
-  /** Create a job (from data), update db, return new job data.
-   *
-   * data should be { title, salary, equity, companyHandle }
-   *
-   * Returns { id, title, salary, equity, companyHandle }
-   **/
    
   static async create(data) {
     try {
@@ -23,7 +14,7 @@ class Event {
                     event_location, event_priority, event_isFlexible)
                 VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
                 RETURNING 
-                  username, event_name, event_start_time, event_duration, event_end_time, 
+                  id, username, event_name, event_start_time, event_duration, event_end_time, 
                   event_location, event_priority, event_isFlexible`,
               [data.username, data.event_name, data.event_start_time, data.event_duration, data.event_end_time,
                 data.event_location, data.event_priority, data.event_isFlexible]);
@@ -33,23 +24,6 @@ class Event {
     }
     
   }
-
-  /** Find all jobs (optional filter on searchFilters).
-   *
-   * searchFilters (all optional):
-   * - minSalary
-   * - hasEquity (true returns only jobs with equity > 0, other values ignored)
-   * - title (will find case-insensitive, partial matches)
-   *
-   * Returns [{ id, title, salary, equity, companyHandle, companyName }, ...]
-   * */
-
-    /** Find all events, sorted by time 
-   *
-   * Returns [{ username, event_name, event_start_time, event_duration, event_location, priority }, ...]
-   *
-   * */ 
-
 
      static async timeSortedEvents(username) {
       const result = await db.query(
@@ -98,17 +72,6 @@ class Event {
        [id]);
      return result.rows[0];
     }
-  /** Update company data with `data`.
-   *
-   * This is a "partial update" --- it's fine if data doesn't contain all the
-   * fields; this only changes provided ones.
-   *
-   * Data can include: {name, description, numEmployees, logoUrl}
-   *
-   * Returns {handle, name, description, numEmployees, logoUrl}
-   *
-   * Throws NotFoundError if not found.
-   */
 
    static async update(id, data) {
     const { setCols, values } = sqlForPartialUpdate(
@@ -129,10 +92,6 @@ class Event {
     return event;
   }
 
-  /** Delete given company from database; returns undefined.
-   *
-   * Throws NotFoundError if company not found.
-   **/
 
   static async remove(id) {
     const result = await db.query(

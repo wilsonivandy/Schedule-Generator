@@ -1,18 +1,7 @@
-import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
-// import background from '../images/lance-anderson.png';
-// import background from '../images/work.avif';
+import React, { useContext } from "react";
 import UserContext from "../auth/UserContext";
-import EventForm from "./EventForm";
 import EventList from "./EventList";
-import API_SECRET_KEY from "../events/secrets";
-import Container from 'react-bootstrap/Container';
-import Button from 'react-bootstrap/Button';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-// import "../dashboard/Dashboard.css";
-
-
+import AddEventForm from "./AddEventForm";
 
 /** Dashboard of site.
  *
@@ -34,7 +23,7 @@ function EventView() {
                     </div>
 
                     <div className='row text-center justify-content-center'>
-                        <EventForm />
+                        <AddEventForm />
                     </div>
             </div>
       </header>

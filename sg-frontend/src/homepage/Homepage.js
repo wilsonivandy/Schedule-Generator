@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 // import background from '../images/lance-anderson.png';
 // import background from '../images/work.avif';
 import UserContext from "../auth/UserContext";
-import EventForm from "../events/EventForm";
+import EventForm from "../events/AddEventForm";
 import EventList from "../events/EventList";
 import ScheduleForm from "../schedules/ScheduleForm";
 import ScheduleList from "../schedules/ScheduleList";

@@ -4,6 +4,7 @@ import ScheduleGeneratorApi from "../api";
 import UserContext from "../auth/UserContext";
 import useScheduleChangeState from "../hooks/useScheduleChangeState";
 import { XSquare, Search } from 'react-bootstrap-icons';
+import Schedule from "./Schedule";
 import "./ScheduleForm.css";
 
 /** Show page with list of companies.
@@ -39,24 +40,17 @@ function ScheduleList() {
               let scheduleArray = await ScheduleGeneratorApi.getSchedulesByGroupId(currentUser.username, uniqueGroupIds[i]);
               listOfSchedules.push(scheduleArray);
             }
-            let tempFinalList = []
-            for (let i = 0; i < listOfSchedules.length; i++) {
-              let tempGroup = [];
-              let group = listOfSchedules[i];
-              let groupName = group[0].schedule_name;
 
+            let tempSchedules = []
+            for (let i = 0; i < listOfSchedules.length; i++) {
+              let group = listOfSchedules[i];
               let schedule = await ScheduleGeneratorApi.getSchedule(currentUser.username, group[0].schedule_id);
-              schedule.total_distance = group[0].total_distance / 1000;
-              schedule.total_duration = group[0].total_duration;
-              schedule.group_id = group[0].group_id;
-              tempGroup.push(schedule);
-              
-              // tempGroup = tempGroup.map(s => s.schedules);
-              tempGroup.name = groupName;
-              tempFinalList.push(tempGroup);
+              schedule.schedules.name = group[0].schedule_name;
+              schedule.schedules.group_id = group[0].group_id;
+              tempSchedules.push(schedule.schedules);
             }
             
-            setSchedules(tempFinalList); // schedules is an array, where each value has a number of grouped schedules,
+            setSchedules(tempSchedules); // schedules is an array, where each value has a number of grouped schedules,
         }
         getSchedule();
     }, [currentUser.username, scheduleChange]);
@@ -73,16 +67,6 @@ function ScheduleList() {
       </div>
     );
 
-    async function removeSchedule(username, id) {
-      await ScheduleGeneratorApi.removeSchedule(username, id);
-      toggleScheduleChange();
-    }
-
-    function viewMap(id) {
-      setGroupId(id);
-      history.push(`/dashboard/${currentUser.username}/map`);
-    }
-
     function renderSchedules() {
       return (
         <>
@@ -97,43 +81,14 @@ function ScheduleList() {
               </tr>
             </thead>
             <tbody>
-              {schedules.map(group =>  (writeGroup(group, group.name)))}
+              {schedules.map(s =>  (
+                <Schedule schedule={s}/>
+              ))}
             </tbody>
           </table>
         </>
         
       )
-    }
-
-   function writeGroup(group, name) {
-        return (
-          <>
-          {group.map(s => (writeSchedule(s, name)))}
-          </>
-        )
-      }
-
-    function writeSchedule(schedule, name) {
-        let start = new Date(schedule.schedules.schedule_start_time);
-        let end = new Date(schedule.schedules.schedule_end_time);
-        let startTime = `${start.toTimeString().slice(0, 5)} - ${end.toTimeString().slice(0, 5)}` ;
-        return (
-          <tr>
-            <td>
-              <button onClick={() => removeSchedule(currentUser.username, schedule.schedules.id)} className="btn-sm btn-primary"><XSquare/></button>
-            </td>
-            
-            <th scope="row">{name}</th>
-            <td>{startTime}</td>
-            <td>{schedule.schedules.schedule_date.slice(0,16)}</td>
-            {/* <td>{Math.round(schedule.total_distance * 10) / 10}</td>
-            <td>{Math.round(schedule.total_duration * 10) / 10}</td> */}
-
-            <td>
-              <button onClick={() => viewMap(schedule.group_id)} className="btn-sm btn-primary"><Search/></button>
-            </td>
-          </tr>
-        )
     }
 
   return (

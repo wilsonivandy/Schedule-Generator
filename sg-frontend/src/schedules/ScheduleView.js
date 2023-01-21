@@ -1,17 +1,7 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
-// import background from '../images/lance-anderson.png';
-// import background from '../images/work.avif';
 import UserContext from "../auth/UserContext";
 import ScheduleForm from "./ScheduleForm";
 import ScheduleList from "./ScheduleList";
-import API_SECRET_KEY from "../events/secrets";
-import Container from 'react-bootstrap/Container';
-import Button from 'react-bootstrap/Button';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-// import "../dashboard/Dashboard.css";
-
 
 
 /** Dashboard of site.

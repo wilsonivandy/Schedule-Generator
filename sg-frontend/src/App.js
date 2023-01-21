@@ -9,12 +9,6 @@ import Routes from './routes/Routes'
 import NavBar from './routes/NavBar'
 import jwt from "jsonwebtoken";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import useScheduleState from "./hooks/useScheduleState";
-
-
 
 import './App.css';
 
@@ -24,17 +18,11 @@ function App() {
   const history = useHistory()
   const [currentUser, setCurrentUser] = useState(null);
   const [groupId, setGroupId] = useState(0);
-  const [numSchedules, setNumSchedules] = useState(0);
   const [action, setAction] = useState(null);
-  const [editId, setEditId] = useState(0);
   const [token, setToken] = useLocalStorage(TOKEN_LOCAL_STORAGE);
-  // const [applicationIds, setApplicationIds] = useState(new Set([]));
   const [infoLoaded, setInfoLoaded] = useState(false);
-  const [schedule, setSchedule] = useState(null);
 
   useEffect(function loadUserInfo() {
-    console.debug("App useEffect loadUserInfo", "token=", token);
-
     async function getCurrentUser() {
       if (token) {
         try {
@@ -44,7 +32,6 @@ function App() {
           let currentUser = await ScheduleGeneratorApi.getCurrentUser(username);
           currentUser.username = username;
           setCurrentUser(currentUser);
-          // setApplicationIds(new Set(currentUser.applications));
         } catch (err) {
           console.error("App loadUserInfo: problem loading", err);
           setCurrentUser(null);
@@ -52,11 +39,6 @@ function App() {
       }
       setInfoLoaded(true);
     }
-    
-
-    // set infoLoaded to false while async getCurrentUser runs; once the
-    // data is fetched (or even if an error happens!), this will be set back
-    // to false to control the spinner.
     setInfoLoaded(false);
     getCurrentUser();
   }, [token]);
@@ -94,7 +76,7 @@ function App() {
   return (
     <BrowserRouter>
       <UserContext.Provider
-          value={{ currentUser, setCurrentUser, groupId, setGroupId, editId, setEditId, numSchedules, setNumSchedules, action, setAction}}>
+          value={{ currentUser, setCurrentUser, groupId, setGroupId, action, setAction}}>
             <NavBar logout={logout} />
             <Routes login={login} signUp={signUp}/>
       </UserContext.Provider>

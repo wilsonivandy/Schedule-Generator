@@ -3,17 +3,14 @@ import React, { useState, useContext, useRef, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
 import UserContext from "../auth/UserContext";
 import ScheduleGeneratorApi from '../api';
-import useEventState from '../hooks/useEventState';
 import { useJsApiLoader } from '@react-google-maps/api';
 import API_SECRET_KEY from '../events/secrets';
-import useMapState from '../hooks/useMapState';
-import "./Dashboard.css"
+import "./Detailed.css"
 
 const LIBRARIES = ["places"];
 
-function Map() {
+function Detailed() {
     const history = useHistory();
-    const [changeEvent, setEventChange] = useEventState();
     const { currentUser, groupId } = useContext(UserContext);
 
     const [stats, setStats] = useState([0, 0]);
@@ -21,26 +18,9 @@ function Map() {
     const [schedule, setSchedule] = useState(null);
     const [currSchedId, setCurrSchedId] = useState(0);
     const [schedIds , setSchedIds] = useState([]);
-    const [countIdx, setCountIdx] = useState(0);
     const [limit, setLimit] = useState(5);
     const [disabled, setDisabled] = useState(false);
-    
-    
-    const [show, setShow] = useState(false);
-    const [, setToggleLocation] = useState(false);
-    const [map, setMap] = useState(null)
-    const [formData, setFormData] = useState({
-        username: `${currentUser.username}`,
-        event_name: "",
-        event_duration:0,
-        event_location:"",
-        event_priority:0,
-        event_isFlexible:false
-      });
-    const locationRef = useRef()
-    
     const [events, setEvents] = useState([]);
-    const [mapState, setMapState] = useMapState();
     
     useEffect(function loadSchedule() {
         async function getSchedule() {
@@ -56,7 +36,6 @@ function Map() {
 
     function write(e) {
         let time = new Date(e.event_start_time);
-        // let startTime = `${time.toTimeString().slice(0, 8)} - ${time.toDateString()}` ;
         let startTime = `${time.toTimeString().slice(0, 8)}` ;
     
         if (e.event_isflexible === true && !e.event_start_time) {
@@ -125,7 +104,6 @@ function Map() {
 
 
     const Places = () => {
-        let scheduleEvents = [];
         let scheduleDate;
         const { isLoaded } = useJsApiLoader({
             googleMapsApiKey: API_SECRET_KEY,
@@ -268,7 +246,7 @@ function Map() {
     );
 }
 
-export default Map;
+export default Detailed;
 
 
 

@@ -4,7 +4,7 @@ import Dashboard from "../dashboard/Dashboard";
 import LoginForm from "../auth/LoginForm";
 import SignupForm from "../auth/SignUpForm";
 import UserContext from "../auth/UserContext";
-import Map from '../dashboard/Map';
+import Detailed from '../schedules/Detailed';
 import Homepage from '../homepage/Homepage';
 import ScheduleView from '../schedules/ScheduleView';
 import EventView from '../events/EventView';
@@ -49,15 +49,9 @@ function Routes({login, signUp}) {
           <EventView/>
         </Route>
         
-
-
         <Route exact path={schedulesPath}>
           <ScheduleView/>
         </Route>
-{/* 
-        <Route exact path={dashboardPath}>
-          <Dashboard/>
-        </Route> */}
 
         <Route exact path="/login">
           <LoginForm login={login} />
@@ -68,7 +62,7 @@ function Routes({login, signUp}) {
         </Route>
 
         <Route exact path={`${dashboardPath}/map`}>
-          <Map/>
+          <Detailed/>
         </Route>
 
         <Redirect to={`${redirectPath}`} />

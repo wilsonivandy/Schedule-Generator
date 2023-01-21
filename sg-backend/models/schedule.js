@@ -118,34 +118,19 @@ class Schedule {
       return event;
     }
 
-    static async removeEvent(schedule_id, event_id, event_order) {
+    static async removeEvent(schedule_id, event_id) {
       const result = await db.query(
             `DELETE
              FROM schedule_events
              WHERE schedule_id = $1 AND event_id = $2
              RETURNING schedule_id, event_id, event_order, event_start_time, event_end_time`,
-          [scheduleId, detailedEventId, event_order]);
+          [schedule_id, event_id]);
       const event = result.rows[0];
   
       if (!event) throw new NotFoundError(`No event: ${event_id} in schedule ${schedule_id}`);
 
       return event;
     }
-
-
-
-
-  /** Update company data with `data`.
-   *
-   * This is a "partial update" --- it's fine if data doesn't contain all the
-   * fields; this only changes provided ones.
-   *
-   * Data can include: {name, description, numEmployees, logoUrl}
-   *
-   * Returns {handle, name, description, numEmployees, logoUrl}
-   *
-   * Throws NotFoundError if not found.
-   */
 
    static async update(id, data) {
     const { setCols, values } = sqlForPartialUpdate(
