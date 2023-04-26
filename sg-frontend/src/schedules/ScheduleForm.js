@@ -12,6 +12,7 @@ import useScheduleChangeState from '../hooks/useScheduleChangeState';
 function ScheduleForm() {
     const history = useHistory();
     const [scheduleChange, toggleScheduleChange] = useScheduleChangeState();
+    const [pauseButton, togglePauseButton] = useState(false);
     const { currentUser, setAction } = useContext(UserContext);
     const [show, setShow] = useState(false);
     const [formData, setFormData] = useState({
@@ -32,6 +33,7 @@ function ScheduleForm() {
         evt.preventDefault();
         let result;
         try {
+          togglePauseButton(true)
           let newDate = new Date(formData.schedule_date);
           let newStart = new Date(formData.schedule_start_time);
           let newEnd = new Date(formData.schedule_end_time);
@@ -39,6 +41,7 @@ function ScheduleForm() {
           formData.schedule_start_time = newStart.toUTCString();
           formData.schedule_end_time = newEnd.toUTCString();
           result = await ScheduleGeneratorApi.generateSchedule(currentUser.username, formData);
+          togglePauseButton(false)
           if (result) {
             handleClose();
             toggleScheduleChange();
@@ -126,9 +129,13 @@ function ScheduleForm() {
               </div>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="primary" type='submit' id='submitButton' onClick={handleSubmit} >
+            {pauseButton ? <Button variant="primary" type='submit' id='submitButton' onClick={handleSubmit} >
+              Please Wait
+            </Button> : 
+              <Button variant="primary" type='submit' id='submitButton' onClick={handleSubmit} >
               Create Schedule
             </Button>
+          }
           </Modal.Footer>
         </Modal>
       </>

@@ -26,23 +26,20 @@ const EventMap = ({formData, locationCode, setLocationCode, setMap}) => {
             let placePrefix = "place_id:";
             let chosenLocation = placePrefix.concat(place.place_id)
             formData.event_location = chosenLocation;
-            setLocationCode({lat: place.geometry.viewport.Wa.hi, lng: place.geometry.viewport.Ja.hi})
-        }); 
 
-        if (formData.event_location.length > 0) {
             let locationId = formData.event_location.slice(9);
             const geocoder = new google.maps.Geocoder();
             geocoder.geocode({placeId: locationId})
-                    .then(({results}) => {
-                        setLocationCode({lat: results[0].geometry.viewport.Wa.hi, lng: results[0].geometry.viewport.Ja.hi});
-                        input.value = results[0].formatted_address;
-                    })
+                .then(({results}) => {
+                    input.value = results[0].formatted_address;
+                })
+            setLocationCode({lat: place.geometry.viewport.Va.hi, lng: place.geometry.viewport.Ha.hi})
+        }); 
 
-        }
-        
         return (
             <div>
                 <GoogleMap
+                            key={`${locationCode.lat}-${locationCode.lng}`}
                             center={locationCode}
                             zoom={14}
                             mapContainerStyle={{ width: '100%', height: '300px' }}
@@ -52,7 +49,7 @@ const EventMap = ({formData, locationCode, setLocationCode, setMap}) => {
                                 mapTypeControl: false,
                                 fullscreenControl: false,
                             }}
-                            onLoad={map => setMap(map)}
+                            // onLoad={map => setMap(map)}
                             >
                             <Marker position={locationCode} />
                 </GoogleMap>

@@ -107,7 +107,7 @@ function Detailed() {
         let scheduleDate;
         const { isLoaded } = useJsApiLoader({
             googleMapsApiKey: API_SECRET_KEY,
-            LIBRARIES,
+            libraries: LIBRARIES,
         });
 
         useEffect(() => {

@@ -38,7 +38,6 @@ function EditEventForm({eventId}) {
 
       useEffect(function loadEditForm() {
           if (editMode) {
-            console.log("loadEditForm")
             async function getEditForm() {
                 let fetchData = await ScheduleGeneratorApi.getEvent(currentUser.username, eventId);
                 delete fetchData.event_isflexible;
@@ -48,15 +47,10 @@ function EditEventForm({eventId}) {
                     delete fetchData.event_start_time;
                     fetchData.event_isFlexible = true;
                 } else {
-                    // console.log(fetchData.event_start_time);
                     let startTime = new Date(fetchData.event_start_time);
-                    // fetchData.event_start_time = startTime.toJSON();
                     var userTimezoneOffset = startTime.getTimezoneOffset() * 60000;
                     startTime = new Date(startTime.getTime() - userTimezoneOffset);
-                    // console.log(startTime.slice(0, -4));
                     fetchData.event_start_time = startTime.toISOString().slice(0,-1)
-                    // fetchData.event_start_time = startTime.toISOString().slice(0, -1);
-                    // fetchData.event_start_time = fetchData.event_start_time.slice(0, -1);
                     fetchData.event_isFlexible = false;
                 }
                 setShow(true);

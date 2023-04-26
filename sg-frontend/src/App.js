@@ -27,7 +27,6 @@ function App() {
       if (token) {
         try {
           let { username } = jwt.decode(token);
-          // put the token on the Api class so it can use it to call the API.
           ScheduleGeneratorApi.token = token;
           let currentUser = await ScheduleGeneratorApi.getCurrentUser(username);
           currentUser.username = username;

@@ -77,6 +77,7 @@ function ScheduleList() {
                 <th scope="col" className="text-nowrap">Schedule Name</th>
                 <th scope="col">Starting - End</th>
                 <th scope="col" className="text-wrap">Date</th>
+                <th scope="col" className="text-wrap">Alternatives</th>
                 <th></th>
               </tr>
             </thead>

@@ -8,7 +8,6 @@ import Detailed from '../schedules/Detailed';
 import Homepage from '../homepage/Homepage';
 import ScheduleView from '../schedules/ScheduleView';
 import EventView from '../events/EventView';
-// import PrivateRoute from "./PrivateRoute";
 
 function Routes({login, signUp}) {
     const { currentUser, action } = useContext(UserContext);

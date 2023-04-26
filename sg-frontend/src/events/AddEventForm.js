@@ -32,13 +32,15 @@ function AddEventForm() {
         evt.preventDefault();
         formData.event_duration = parseInt(formData.event_duration);
         formData.event_priority = parseInt(formData.event_priority);
-        if (formData["event_start_time"] !== undefined) {
+        if (formData["event_start_time"] !== "") {
             let newTime = new Date(formData.event_start_time);
             formData.event_start_time = newTime.toUTCString();
             newTime.setMinutes(newTime.getMinutes() + formData.event_duration);
             formData.event_end_time = newTime.toUTCString();
             formData.event_isFlexible = false;
         } else {
+            delete formData.event_start_time;
+            delete formData.event_end_time;
             formData.event_isFlexible = true;
         }
         

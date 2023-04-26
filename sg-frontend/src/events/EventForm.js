@@ -62,10 +62,10 @@ function EventForm({formData, locationCode, setLocationCode, setMap, handleSubmi
                 </div>
                 
                 <EventMap formData={formData} locationCode={locationCode} setLocationCode={setLocationCode} setMap={setMap}/>
-
+{/* 
                 {formErrors.length
               ? <Alert type="danger" messages={formErrors} />
-              : null}
+              : null} */}
 
             </form>
         </div>
